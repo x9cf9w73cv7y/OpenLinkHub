@@ -200,8 +200,6 @@
                             {{ range $key, $value := $device.KeyAssignment }}
                             {{ if eq $key 1 }}
                             {{ continue }}
-                            {{ else if eq $key 16 }}
-                            {{ continue }}
                             {{ end }}
                             <tr>
                                 <td class="key-assignments">{{ $value.Name }}</td>

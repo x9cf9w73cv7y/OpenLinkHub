@@ -107,7 +107,7 @@ type Device struct {
 	keyAssignmentFile     string
 	BatteryLevel          uint16
 	KeyAssignmentData     *inputmanager.KeyAssignment
-	ModifierIndex         byte
+	ModifierIndex         uint32
 	SniperMode            bool
 	MacroTracker          map[int]uint16
 	RGBModes              []string
@@ -1987,15 +1987,15 @@ func (d *Device) releaseMacroTracker() {
 }
 
 // TriggerKeyAssignment will trigger key assignment if defined
-func (d *Device) TriggerKeyAssignment(value byte) {
+func (d *Device) TriggerKeyAssignment(value uint32) {
 	var bitDiff = value ^ d.ModifierIndex
 	var pressedKeys = bitDiff & value
 	var releasedKeys = bitDiff & ^value
 	d.ModifierIndex = value
 
 	for keys := pressedKeys | releasedKeys; keys != 0; {
-		bitIdx := bits.TrailingZeros8(keys)
-		mask := uint8(1) << bitIdx
+		bitIdx := bits.TrailingZeros32(keys)
+		mask := uint32(1) << bitIdx
 		keys &^= mask
 
 		isPressed := pressedKeys&mask != 0

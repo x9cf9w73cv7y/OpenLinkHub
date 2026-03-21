@@ -44,6 +44,7 @@ type Device struct {
 	Instance    interface{} `json:"-"`
 	Hidden      bool
 	DeviceType  uint32
+	ProductId   uint16
 }
 
 type KeyboardPerformance struct {

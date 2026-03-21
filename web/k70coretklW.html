@@ -27,6 +27,10 @@
             {{ template "temperature-bar" . }}
             {{ end }}
 
+            {{ if eq .Device.Connected false }}
+            {{ template "404-no-device" . }}
+            {{ else }}
+
             <!-- K100 AIR WIRELESS -->
             <div class="row g-4 mb-4 align-items-start">
                 <div class="col-md-2">
@@ -289,6 +293,7 @@
                     </div>
                 </div>
             </div>
+            {{ end }}
         </main>
     </div>
 </div>

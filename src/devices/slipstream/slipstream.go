@@ -168,6 +168,7 @@ func (d *Device) addDevices() {
 					Image:       "icon-mouse.svg",
 					Instance:    dev,
 					DeviceType:  common.DeviceTypeMouse,
+					ProductId:   value.ProductId,
 				}
 				d.SharedDevices(object)
 				d.AddPairedDevice(value.ProductId, dev, object)
@@ -191,6 +192,7 @@ func (d *Device) addDevices() {
 					Image:       "icon-mouse.svg",
 					Instance:    dev,
 					DeviceType:  common.DeviceTypeMouse,
+					ProductId:   value.ProductId,
 				}
 				d.SharedDevices(object)
 				d.AddPairedDevice(value.ProductId, dev, object)
@@ -214,6 +216,7 @@ func (d *Device) addDevices() {
 					Image:       "icon-mouse.svg",
 					Instance:    dev,
 					DeviceType:  common.DeviceTypeMouse,
+					ProductId:   value.ProductId,
 				}
 				d.SharedDevices(object)
 				d.AddPairedDevice(value.ProductId, dev, object)
@@ -237,6 +240,7 @@ func (d *Device) addDevices() {
 					Image:       "icon-mouse.svg",
 					Instance:    dev,
 					DeviceType:  common.DeviceTypeMouse,
+					ProductId:   value.ProductId,
 				}
 
 				d.SharedDevices(object)
@@ -260,6 +264,8 @@ func (d *Device) addDevices() {
 					Firmware:    dev.Firmware,
 					Image:       "icon-keyboard.svg",
 					Instance:    dev,
+					DeviceType:  common.DeviceTypeKeyboard,
+					ProductId:   value.ProductId,
 				}
 				d.SharedDevices(object)
 				d.AddPairedDevice(value.ProductId, dev, object)
@@ -283,6 +289,7 @@ func (d *Device) addDevices() {
 					Image:       "icon-mouse.svg",
 					Instance:    dev,
 					DeviceType:  common.DeviceTypeMouse,
+					ProductId:   value.ProductId,
 				}
 				d.SharedDevices(object)
 				d.AddPairedDevice(value.ProductId, dev, object)
@@ -306,6 +313,7 @@ func (d *Device) addDevices() {
 					Image:       "icon-mouse.svg",
 					Instance:    dev,
 					DeviceType:  common.DeviceTypeMouse,
+					ProductId:   value.ProductId,
 				}
 				d.SharedDevices(object)
 				d.AddPairedDevice(value.ProductId, dev, object)
@@ -329,6 +337,7 @@ func (d *Device) addDevices() {
 					Image:       "icon-mouse.svg",
 					Instance:    dev,
 					DeviceType:  common.DeviceTypeMouse,
+					ProductId:   value.ProductId,
 				}
 				d.SharedDevices(object)
 				d.AddPairedDevice(value.ProductId, dev, object)
@@ -352,6 +361,7 @@ func (d *Device) addDevices() {
 					Image:       "icon-mouse.svg",
 					Instance:    dev,
 					DeviceType:  common.DeviceTypeMouse,
+					ProductId:   value.ProductId,
 				}
 				d.SharedDevices(object)
 				d.AddPairedDevice(value.ProductId, dev, object)
@@ -375,6 +385,7 @@ func (d *Device) addDevices() {
 					Image:       "icon-mouse.svg",
 					Instance:    dev,
 					DeviceType:  common.DeviceTypeMouse,
+					ProductId:   value.ProductId,
 				}
 				d.SharedDevices(object)
 				d.AddPairedDevice(value.ProductId, dev, object)
@@ -398,6 +409,7 @@ func (d *Device) addDevices() {
 					Image:       "icon-mouse.svg",
 					Instance:    dev,
 					DeviceType:  common.DeviceTypeMouse,
+					ProductId:   value.ProductId,
 				}
 				d.SharedDevices(object)
 				d.AddPairedDevice(value.ProductId, dev, object)
@@ -421,6 +433,7 @@ func (d *Device) addDevices() {
 					Image:       "icon-mouse.svg",
 					Instance:    dev,
 					DeviceType:  common.DeviceTypeMouse,
+					ProductId:   value.ProductId,
 				}
 				d.SharedDevices(object)
 				d.AddPairedDevice(value.ProductId, dev, object)
@@ -444,6 +457,7 @@ func (d *Device) addDevices() {
 					Image:       "icon-mouse.svg",
 					Instance:    dev,
 					DeviceType:  common.DeviceTypeMouse,
+					ProductId:   value.ProductId,
 				}
 				d.SharedDevices(object)
 				d.AddPairedDevice(value.ProductId, dev, object)
@@ -467,6 +481,7 @@ func (d *Device) addDevices() {
 					Image:       "icon-mouse.svg",
 					Instance:    dev,
 					DeviceType:  common.DeviceTypeMouse,
+					ProductId:   value.ProductId,
 				}
 				d.SharedDevices(object)
 				d.AddPairedDevice(value.ProductId, dev, object)
@@ -490,6 +505,8 @@ func (d *Device) addDevices() {
 					Firmware:    dev.Firmware,
 					Image:       "icon-keyboard.svg",
 					Instance:    dev,
+					DeviceType:  common.DeviceTypeKeyboard,
+					ProductId:   value.ProductId,
 				}
 				d.SharedDevices(object)
 				d.AddPairedDevice(value.ProductId, dev, object)
@@ -513,6 +530,7 @@ func (d *Device) addDevices() {
 					Image:       "icon-mouse.svg",
 					Instance:    dev,
 					DeviceType:  common.DeviceTypeMouse,
+					ProductId:   value.ProductId,
 				}
 				d.SharedDevices(object)
 				d.AddPairedDevice(value.ProductId, dev, object)
@@ -535,6 +553,8 @@ func (d *Device) addDevices() {
 					Firmware:    dev.Firmware,
 					Image:       "icon-keyboard.svg",
 					Instance:    dev,
+					DeviceType:  common.DeviceTypeKeyboard,
+					ProductId:   value.ProductId,
 				}
 				d.SharedDevices(object)
 				d.AddPairedDevice(value.ProductId, dev, object)
@@ -557,6 +577,8 @@ func (d *Device) addDevices() {
 					Firmware:    dev.Firmware,
 					Image:       "icon-keyboard.svg",
 					Instance:    dev,
+					DeviceType:  common.DeviceTypeKeyboard,
+					ProductId:   value.ProductId,
 				}
 				d.SharedDevices(object)
 				d.AddPairedDevice(value.ProductId, dev, object)
@@ -579,6 +601,8 @@ func (d *Device) addDevices() {
 					Firmware:    dev.Firmware,
 					Image:       "icon-keyboard.svg",
 					Instance:    dev,
+					DeviceType:  common.DeviceTypeKeyboard,
+					ProductId:   value.ProductId,
 				}
 				d.SharedDevices(object)
 				d.AddPairedDevice(value.ProductId, dev, object)
@@ -609,96 +633,12 @@ func (d *Device) StopDirty() uint8 {
 	}()
 
 	for _, value := range d.PairedDevices {
-		if dev, found := value.(*m55W.Device); found {
-			if dev.Connected {
-				dev.StopDirty()
-			}
+		stopDirty := reflect.ValueOf(value).MethodByName("StopDirty")
+		if !stopDirty.IsValid() {
+			logger.Log(logger.Fields{"productId": d.ProductId}).Warn("Invalid or non-existing method called")
+			continue
 		}
-		if dev, found := value.(*nightsabreW.Device); found {
-			if dev.Connected {
-				dev.StopDirty()
-			}
-		}
-		if dev, found := value.(*k100airW.Device); found {
-			if dev.Connected {
-				dev.StopDirty()
-			}
-		}
-		if dev, found := value.(*k70pmW.Device); found {
-			if dev.Connected {
-				dev.StopDirty()
-			}
-		}
-		if dev, found := value.(*ironclawW.Device); found {
-			if dev.Connected {
-				dev.StopDirty()
-			}
-		}
-		if dev, found := value.(*scimitarW.Device); found {
-			if dev.Connected {
-				dev.StopDirty()
-			}
-		}
-		if dev, found := value.(*scimitarSEW.Device); found {
-			if dev.Connected {
-				dev.StopDirty()
-			}
-		}
-		if dev, found := value.(*darkcorergbproseW.Device); found {
-			if dev.Connected {
-				dev.StopDirty()
-			}
-		}
-		if dev, found := value.(*darkcorergbproW.Device); found {
-			if dev.Connected {
-				dev.StopDirty()
-			}
-		}
-		if dev, found := value.(*m75W.Device); found {
-			if dev.Connected {
-				dev.StopDirty()
-			}
-		}
-		if dev, found := value.(*m75AirW.Device); found {
-			if dev.Connected {
-				dev.StopDirty()
-			}
-		}
-		if dev, found := value.(*harpoonW.Device); found {
-			if dev.Connected {
-				dev.StopDirty()
-			}
-		}
-		if dev, found := value.(*darkstarW.Device); found {
-			if dev.Connected {
-				dev.StopDirty()
-			}
-		}
-		if dev, found := value.(*k70coretklW.Device); found {
-			if dev.Connected {
-				dev.StopDirty()
-			}
-		}
-		if dev, found := value.(*m65rgbultraW.Device); found {
-			if dev.Connected {
-				dev.StopDirty()
-			}
-		}
-		if dev, found := value.(*sabrergbproW.Device); found {
-			if dev.Connected {
-				dev.StopDirty()
-			}
-		}
-		if dev, found := value.(*makr75W.Device); found {
-			if dev.Connected {
-				dev.StopDirty()
-			}
-		}
-		if dev, found := value.(*k57rgbW.Device); found {
-			if dev.Connected {
-				dev.StopDirty()
-			}
-		}
+		stopDirty.Call(nil)
 	}
 	logger.Log(logger.Fields{"serial": d.Serial, "product": d.Product}).Info("Device stopped")
 	return 2
@@ -724,96 +664,12 @@ func (d *Device) Stop() {
 	}()
 
 	for _, value := range d.PairedDevices {
-		if dev, found := value.(*m55W.Device); found {
-			if dev.Connected {
-				dev.StopInternal()
-			}
+		stopInternal := reflect.ValueOf(value).MethodByName("StopInternal")
+		if !stopInternal.IsValid() {
+			logger.Log(logger.Fields{"productId": d.ProductId}).Warn("Invalid or non-existing method called")
+			continue
 		}
-		if dev, found := value.(*nightsabreW.Device); found {
-			if dev.Connected {
-				dev.StopInternal()
-			}
-		}
-		if dev, found := value.(*k100airW.Device); found {
-			if dev.Connected {
-				dev.StopInternal()
-			}
-		}
-		if dev, found := value.(*makr75W.Device); found {
-			if dev.Connected {
-				dev.StopInternal()
-			}
-		}
-		if dev, found := value.(*k57rgbW.Device); found {
-			if dev.Connected {
-				dev.StopInternal()
-			}
-		}
-		if dev, found := value.(*k70pmW.Device); found {
-			if dev.Connected {
-				dev.StopInternal()
-			}
-		}
-		if dev, found := value.(*ironclawW.Device); found {
-			if dev.Connected {
-				dev.StopInternal()
-			}
-		}
-		if dev, found := value.(*scimitarW.Device); found {
-			if dev.Connected {
-				dev.StopInternal()
-			}
-		}
-		if dev, found := value.(*scimitarSEW.Device); found {
-			if dev.Connected {
-				dev.StopInternal()
-			}
-		}
-		if dev, found := value.(*darkcorergbproseW.Device); found {
-			if dev.Connected {
-				dev.StopInternal()
-			}
-		}
-		if dev, found := value.(*darkcorergbproW.Device); found {
-			if dev.Connected {
-				dev.StopInternal()
-			}
-		}
-		if dev, found := value.(*m75W.Device); found {
-			if dev.Connected {
-				dev.StopInternal()
-			}
-		}
-		if dev, found := value.(*m75AirW.Device); found {
-			if dev.Connected {
-				dev.StopInternal()
-			}
-		}
-		if dev, found := value.(*harpoonW.Device); found {
-			if dev.Connected {
-				dev.StopInternal()
-			}
-		}
-		if dev, found := value.(*darkstarW.Device); found {
-			if dev.Connected {
-				dev.StopInternal()
-			}
-		}
-		if dev, found := value.(*k70coretklW.Device); found {
-			if dev.Connected {
-				dev.StopInternal()
-			}
-		}
-		if dev, found := value.(*m65rgbultraW.Device); found {
-			if dev.Connected {
-				dev.StopInternal()
-			}
-		}
-		if dev, found := value.(*sabrergbproW.Device); found {
-			if dev.Connected {
-				dev.StopInternal()
-			}
-		}
+		stopInternal.Call(nil)
 	}
 
 	time.Sleep(500 * time.Millisecond)
@@ -1000,667 +856,115 @@ func (d *Device) initAvailableDevices() {
 			logger.Log(logger.Fields{"error": err, "endpoint": value.Endpoint, "productId": value.ProductId}).Warn("Unable to read endpoint. Device is probably offline")
 			continue
 		}
-		d.setDeviceOnlineByProductId(value.ProductId)
+
+		if _, ok := d.PairedDevices[value.ProductId]; ok {
+			connect := reflect.ValueOf(d.PairedDevices[value.ProductId]).MethodByName("Connect")
+			if !connect.IsValid() {
+				logger.Log(logger.Fields{"endpoint": value.Endpoint, "productId": value.ProductId}).Warn("Invalid or non-existing method called")
+				return
+			}
+			connect.Call(nil)
+		}
 	}
 }
 
 // setDeviceOnlineByProductId will online device by given productId
 func (d *Device) setDeviceBatteryLevelByProductId(productId, batteryLevel uint16) {
-	if dev, ok := d.PairedDevices[productId]; ok {
-		if device, found := dev.(*k100airW.Device); found {
-			if device.Connected {
-				device.ModifyBatteryLevel(batteryLevel)
-			}
+	if _, ok := d.PairedDevices[productId]; ok {
+		battery := reflect.ValueOf(d.PairedDevices[productId]).MethodByName("ModifyBatteryLevel")
+		if !battery.IsValid() {
+			logger.Log(logger.Fields{"productId": productId}).Warn("Invalid or non-existing method called")
+			return
 		}
-		if device, found := dev.(*makr75W.Device); found {
-			if device.Connected {
-				device.ModifyBatteryLevel(batteryLevel)
-			}
-		}
-		if device, found := dev.(*k57rgbW.Device); found {
-			if device.Connected {
-				device.ModifyBatteryLevel(batteryLevel)
-			}
-		}
-		if device, found := dev.(*k70pmW.Device); found {
-			if device.Connected {
-				device.ModifyBatteryLevel(batteryLevel)
-			}
-		}
-		if device, found := dev.(*darkcorergbproW.Device); found {
-			if device.Connected {
-				device.ModifyBatteryLevel(batteryLevel)
-			}
-		}
-		if device, found := dev.(*darkcorergbproseW.Device); found {
-			if device.Connected {
-				device.ModifyBatteryLevel(batteryLevel)
-			}
-		}
-		if device, found := dev.(*darkstarW.Device); found {
-			if device.Connected {
-				device.ModifyBatteryLevel(batteryLevel)
-			}
-		}
-		if device, found := dev.(*nightsabreW.Device); found {
-			if device.Connected {
-				device.ModifyBatteryLevel(batteryLevel)
-			}
-		}
-		if device, found := dev.(*scimitarW.Device); found {
-			if device.Connected {
-				device.ModifyBatteryLevel(batteryLevel)
-			}
-		}
-		if device, found := dev.(*scimitarSEW.Device); found {
-			if device.Connected {
-				device.ModifyBatteryLevel(batteryLevel)
-			}
-		}
-		if device, found := dev.(*m55W.Device); found {
-			if device.Connected {
-				device.ModifyBatteryLevel(batteryLevel)
-			}
-		}
-		if device, found := dev.(*m75W.Device); found {
-			if device.Connected {
-				device.ModifyBatteryLevel(batteryLevel)
-			}
-		}
-		if device, found := dev.(*m75AirW.Device); found {
-			if device.Connected {
-				device.ModifyBatteryLevel(batteryLevel)
-			}
-		}
-		if device, found := dev.(*ironclawW.Device); found {
-			if device.Connected {
-				device.ModifyBatteryLevel(batteryLevel)
-			}
-		}
-		if device, found := dev.(*harpoonW.Device); found {
-			if device.Connected {
-				device.ModifyBatteryLevel(batteryLevel)
-			}
-		}
-		if device, found := dev.(*k70coretklW.Device); found {
-			if device.Connected {
-				device.ModifyBatteryLevel(batteryLevel)
-			}
-		}
-		if device, found := dev.(*m65rgbultraW.Device); found {
-			if device.Connected {
-				device.ModifyBatteryLevel(batteryLevel)
-			}
-		}
-		if device, found := dev.(*sabrergbproW.Device); found {
-			if device.Connected {
-				device.ModifyBatteryLevel(batteryLevel)
-			}
-		}
-	}
-}
 
-// setDeviceOnlineByProductId will online device by given productId
-func (d *Device) setDeviceOnlineByProductId(productId uint16) {
-	if dev, ok := d.PairedDevices[productId]; ok {
-		if device, found := dev.(*m55W.Device); found {
-			if !device.Connected {
-				device.Connect()
-			}
-		}
-		if device, found := dev.(*scimitarW.Device); found {
-			if !device.Connected {
-				device.Connect()
-			}
-		}
-		if device, found := dev.(*scimitarSEW.Device); found {
-			if !device.Connected {
-				time.Sleep(2000 * time.Millisecond)
-				device.Connect()
-			}
-		}
-		if device, found := dev.(*nightsabreW.Device); found {
-			if !device.Connected {
-				device.Connect()
-			}
-		}
-		if device, found := dev.(*k100airW.Device); found {
-			if !device.Connected {
-				device.Connect()
-			}
-		}
-		if device, found := dev.(*makr75W.Device); found {
-			if !device.Connected {
-				device.Connect()
-			}
-		}
-		if device, found := dev.(*k57rgbW.Device); found {
-			if !device.Connected {
-				device.Connect()
-			}
-		}
-		if device, found := dev.(*k70pmW.Device); found {
-			if !device.Connected {
-				device.Connect()
-			}
-		}
-		if device, found := dev.(*ironclawW.Device); found {
-			if !device.Connected {
-				device.Connect()
-			}
-		}
-		if device, found := dev.(*darkcorergbproseW.Device); found {
-			if !device.Connected {
-				device.Connect()
-			}
-		}
-		if device, found := dev.(*darkcorergbproW.Device); found {
-			if !device.Connected {
-				device.Connect()
-			}
-		}
-		if device, found := dev.(*m75W.Device); found {
-			if !device.Connected {
-				device.Connect()
-			}
-		}
-		if device, found := dev.(*m75AirW.Device); found {
-			if !device.Connected {
-				device.Connect()
-			}
-		}
-		if device, found := dev.(*harpoonW.Device); found {
-			if !device.Connected {
-				device.Connect()
-			}
-		}
-		if device, found := dev.(*darkstarW.Device); found {
-			if !device.Connected {
-				device.Connect()
-			}
-		}
-		if device, found := dev.(*k70coretklW.Device); found {
-			if !device.Connected {
-				device.Connect()
-			}
-		}
-		if device, found := dev.(*m65rgbultraW.Device); found {
-			if !device.Connected {
-				device.Connect()
-			}
-		}
-		if device, found := dev.(*sabrergbproW.Device); found {
-			if !device.Connected {
-				device.Connect()
-			}
-		}
-	}
-}
-
-// setDevicesOffline will set all device offline
-func (d *Device) setDevicesOffline() {
-	for _, pairedDevice := range d.PairedDevices {
-		if device, found := pairedDevice.(*m55W.Device); found {
-			if device.Connected {
-				device.SetConnected(false)
-			}
-		}
-		if device, found := pairedDevice.(*scimitarW.Device); found {
-			if device.Connected {
-				device.SetConnected(false)
-			}
-		}
-		if device, found := pairedDevice.(*scimitarSEW.Device); found {
-			if device.Connected {
-				device.SetConnected(false)
-			}
-		}
-		if device, found := pairedDevice.(*nightsabreW.Device); found {
-			if device.Connected {
-				device.SetConnected(false)
-			}
-		}
-		if device, found := pairedDevice.(*k100airW.Device); found {
-			if device.Connected {
-				device.SetConnected(false)
-			}
-		}
-		if device, found := pairedDevice.(*makr75W.Device); found {
-			if device.Connected {
-				device.SetConnected(false)
-			}
-		}
-		if device, found := pairedDevice.(*k57rgbW.Device); found {
-			if device.Connected {
-				device.SetConnected(false)
-			}
-		}
-		if device, found := pairedDevice.(*k70pmW.Device); found {
-			if device.Connected {
-				device.SetConnected(false)
-			}
-		}
-		if device, found := pairedDevice.(*ironclawW.Device); found {
-			if device.Connected {
-				device.SetConnected(false)
-			}
-		}
-		if device, found := pairedDevice.(*darkcorergbproseW.Device); found {
-			if device.Connected {
-				device.SetConnected(false)
-			}
-		}
-		if device, found := pairedDevice.(*darkcorergbproW.Device); found {
-			if device.Connected {
-				device.SetConnected(false)
-			}
-		}
-		if device, found := pairedDevice.(*m75W.Device); found {
-			if device.Connected {
-				device.SetConnected(false)
-			}
-		}
-		if device, found := pairedDevice.(*m75AirW.Device); found {
-			if device.Connected {
-				device.SetConnected(false)
-			}
-		}
-		if device, found := pairedDevice.(*harpoonW.Device); found {
-			if device.Connected {
-				device.SetConnected(false)
-			}
-		}
-		if device, found := pairedDevice.(*darkstarW.Device); found {
-			if device.Connected {
-				device.SetConnected(false)
-			}
-		}
-		if device, found := pairedDevice.(*k70coretklW.Device); found {
-			if device.Connected {
-				device.SetConnected(false)
-			}
-		}
-		if device, found := pairedDevice.(*m65rgbultraW.Device); found {
-			if device.Connected {
-				device.SetConnected(false)
-			}
-		}
-		if device, found := pairedDevice.(*sabrergbproW.Device); found {
-			if device.Connected {
-				device.SetConnected(false)
-			}
-		}
-	}
-}
-
-// setDeviceTypeOffline will set specific device type offline
-func (d *Device) setDeviceTypeOffline(deviceType int) {
-	for _, pairedDevice := range d.PairedDevices {
-		switch deviceType {
-		case 0:
-			{
-				// Keyboards
-				if device, found := pairedDevice.(*k100airW.Device); found {
-					if device.Connected {
-						device.SetConnected(false)
-					}
-				}
-				if device, found := pairedDevice.(*makr75W.Device); found {
-					if device.Connected {
-						device.SetConnected(false)
-					}
-				}
-				if device, found := pairedDevice.(*k70pmW.Device); found {
-					if device.Connected {
-						device.SetConnected(false)
-					}
-				}
-				if device, found := pairedDevice.(*k70coretklW.Device); found {
-					if device.Connected {
-						device.SetConnected(false)
-					}
-				}
-				if device, found := pairedDevice.(*k57rgbW.Device); found {
-					if device.Connected {
-						device.SetConnected(false)
-					}
-				}
-			}
-			break
-		case 1:
-			{
-				// Mouses
-				if device, found := pairedDevice.(*m55W.Device); found {
-					if device.Connected {
-						device.SetConnected(false)
-					}
-				}
-				if device, found := pairedDevice.(*scimitarW.Device); found {
-					if device.Connected {
-						device.SetConnected(false)
-					}
-				}
-				if device, found := pairedDevice.(*scimitarSEW.Device); found {
-					if device.Connected {
-						device.SetConnected(false)
-					}
-				}
-				if device, found := pairedDevice.(*nightsabreW.Device); found {
-					if device.Connected {
-						device.SetConnected(false)
-					}
-				}
-				if device, found := pairedDevice.(*ironclawW.Device); found {
-					if device.Connected {
-						device.SetConnected(false)
-					}
-				}
-				if device, found := pairedDevice.(*darkcorergbproseW.Device); found {
-					if device.Connected {
-						device.SetConnected(false)
-					}
-				}
-				if device, found := pairedDevice.(*darkcorergbproW.Device); found {
-					if device.Connected {
-						device.SetConnected(false)
-					}
-				}
-				if device, found := pairedDevice.(*m75W.Device); found {
-					if device.Connected {
-						device.SetConnected(false)
-					}
-				}
-				if device, found := pairedDevice.(*m75AirW.Device); found {
-					if device.Connected {
-						device.SetConnected(false)
-					}
-				}
-				if device, found := pairedDevice.(*harpoonW.Device); found {
-					if device.Connected {
-						device.SetConnected(false)
-					}
-				}
-				if device, found := pairedDevice.(*darkstarW.Device); found {
-					if device.Connected {
-						device.SetConnected(false)
-					}
-				}
-				if device, found := pairedDevice.(*m65rgbultraW.Device); found {
-					if device.Connected {
-						device.SetConnected(false)
-					}
-				}
-				if device, found := pairedDevice.(*sabrergbproW.Device); found {
-					if device.Connected {
-						device.SetConnected(false)
-					}
-				}
-			}
-			break
-		}
-	}
-}
-
-// setDeviceOnline will set device online
-func (d *Device) setDeviceOnline(deviceType int) {
-	time.Sleep(time.Duration(connectDelay) * time.Millisecond)
-	for _, pairedDevice := range d.PairedDevices {
-		switch deviceType {
-		case 0:
-			{
-				// Keyboards
-				if device, found := pairedDevice.(*k100airW.Device); found {
-					if !device.Connected {
-						device.Connect()
-						d.SharedDevices(d.DeviceList[device.Serial])
-					}
-				}
-				if device, found := pairedDevice.(*makr75W.Device); found {
-					if !device.Connected {
-						device.Connect()
-						d.SharedDevices(d.DeviceList[device.Serial])
-					}
-				}
-				if device, found := pairedDevice.(*k70pmW.Device); found {
-					if !device.Connected {
-						device.Connect()
-						d.SharedDevices(d.DeviceList[device.Serial])
-					}
-				}
-				if device, found := pairedDevice.(*k70coretklW.Device); found {
-					if !device.Connected {
-						device.Connect()
-						d.SharedDevices(d.DeviceList[device.Serial])
-					}
-				}
-				if device, found := pairedDevice.(*k57rgbW.Device); found {
-					if !device.Connected {
-						device.Connect()
-						d.SharedDevices(d.DeviceList[device.Serial])
-					}
-				}
-			}
-			break
-		case 1:
-			{
-				// Mouses
-				if device, found := pairedDevice.(*m55W.Device); found {
-					if !device.Connected {
-						device.Connect()
-						d.SharedDevices(d.DeviceList[device.Serial])
-					}
-				}
-				if device, found := pairedDevice.(*scimitarW.Device); found {
-					if !device.Connected {
-						device.Connect()
-						d.SharedDevices(d.DeviceList[device.Serial])
-					}
-				}
-				if device, found := pairedDevice.(*scimitarSEW.Device); found {
-					if !device.Connected {
-						device.Connect()
-						d.SharedDevices(d.DeviceList[device.Serial])
-					}
-				}
-				if device, found := pairedDevice.(*nightsabreW.Device); found {
-					if !device.Connected {
-						device.Connect()
-						d.SharedDevices(d.DeviceList[device.Serial])
-					}
-				}
-				if device, found := pairedDevice.(*ironclawW.Device); found {
-					if !device.Connected {
-						device.Connect()
-						d.SharedDevices(d.DeviceList[device.Serial])
-					}
-				}
-				if device, found := pairedDevice.(*darkcorergbproseW.Device); found {
-					if !device.Connected {
-						device.Connect()
-						d.SharedDevices(d.DeviceList[device.Serial])
-					}
-				}
-				if device, found := pairedDevice.(*darkcorergbproW.Device); found {
-					if !device.Connected {
-						device.Connect()
-						d.SharedDevices(d.DeviceList[device.Serial])
-					}
-				}
-				if device, found := pairedDevice.(*m75W.Device); found {
-					if !device.Connected {
-						device.Connect()
-						d.SharedDevices(d.DeviceList[device.Serial])
-					}
-				}
-				if device, found := pairedDevice.(*m75AirW.Device); found {
-					if !device.Connected {
-						device.Connect()
-						d.SharedDevices(d.DeviceList[device.Serial])
-					}
-				}
-				if device, found := pairedDevice.(*harpoonW.Device); found {
-					if !device.Connected {
-						device.Connect()
-						d.SharedDevices(d.DeviceList[device.Serial])
-					}
-				}
-				if device, found := pairedDevice.(*darkstarW.Device); found {
-					if !device.Connected {
-						device.Connect()
-						d.SharedDevices(d.DeviceList[device.Serial])
-					}
-				}
-				if device, found := pairedDevice.(*m65rgbultraW.Device); found {
-					if !device.Connected {
-						device.Connect()
-						d.SharedDevices(d.DeviceList[device.Serial])
-					}
-				}
-				if device, found := pairedDevice.(*sabrergbproW.Device); found {
-					if !device.Connected {
-						device.Connect()
-						d.SharedDevices(d.DeviceList[device.Serial])
-					}
-				}
-			}
-			break
-		case 2:
-			{
-				// All
-				if device, found := pairedDevice.(*k100airW.Device); found {
-					if !device.Connected {
-						device.Connect()
-						d.SharedDevices(d.DeviceList[device.Serial])
-					}
-				}
-				if device, found := pairedDevice.(*makr75W.Device); found {
-					if !device.Connected {
-						device.Connect()
-						d.SharedDevices(d.DeviceList[device.Serial])
-					}
-				}
-				if device, found := pairedDevice.(*k70pmW.Device); found {
-					if !device.Connected {
-						device.Connect()
-						d.SharedDevices(d.DeviceList[device.Serial])
-					}
-				}
-				if device, found := pairedDevice.(*k57rgbW.Device); found {
-					if !device.Connected {
-						device.Connect()
-						d.SharedDevices(d.DeviceList[device.Serial])
-					}
-				}
-				if device, found := pairedDevice.(*m55W.Device); found {
-					if !device.Connected {
-						device.Connect()
-						d.SharedDevices(d.DeviceList[device.Serial])
-					}
-				}
-				if device, found := pairedDevice.(*scimitarW.Device); found {
-					if !device.Connected {
-						device.Connect()
-						d.SharedDevices(d.DeviceList[device.Serial])
-					}
-				}
-				if device, found := pairedDevice.(*scimitarSEW.Device); found {
-					if !device.Connected {
-						device.Connect()
-						d.SharedDevices(d.DeviceList[device.Serial])
-					}
-				}
-				if device, found := pairedDevice.(*nightsabreW.Device); found {
-					if !device.Connected {
-						device.Connect()
-						d.SharedDevices(d.DeviceList[device.Serial])
-					}
-				}
-				if device, found := pairedDevice.(*ironclawW.Device); found {
-					if !device.Connected {
-						device.Connect()
-						d.SharedDevices(d.DeviceList[device.Serial])
-					}
-				}
-				if device, found := pairedDevice.(*darkcorergbproseW.Device); found {
-					if !device.Connected {
-						device.Connect()
-						d.SharedDevices(d.DeviceList[device.Serial])
-					}
-				}
-				if device, found := pairedDevice.(*darkcorergbproW.Device); found {
-					if !device.Connected {
-						device.Connect()
-						d.SharedDevices(d.DeviceList[device.Serial])
-					}
-				}
-				if device, found := pairedDevice.(*m75W.Device); found {
-					if !device.Connected {
-						device.Connect()
-						d.SharedDevices(d.DeviceList[device.Serial])
-					}
-				}
-				if device, found := pairedDevice.(*m75AirW.Device); found {
-					if !device.Connected {
-						device.Connect()
-						d.SharedDevices(d.DeviceList[device.Serial])
-					}
-				}
-				if device, found := pairedDevice.(*harpoonW.Device); found {
-					if !device.Connected {
-						device.Connect()
-						d.SharedDevices(d.DeviceList[device.Serial])
-					}
-				}
-				if device, found := pairedDevice.(*darkstarW.Device); found {
-					if !device.Connected {
-						device.Connect()
-						d.SharedDevices(d.DeviceList[device.Serial])
-					}
-				}
-				if device, found := pairedDevice.(*k70coretklW.Device); found {
-					if !device.Connected {
-						device.Connect()
-						d.SharedDevices(d.DeviceList[device.Serial])
-					}
-				}
-				if device, found := pairedDevice.(*m65rgbultraW.Device); found {
-					if !device.Connected {
-						device.Connect()
-						d.SharedDevices(d.DeviceList[device.Serial])
-					}
-				}
-				if device, found := pairedDevice.(*sabrergbproW.Device); found {
-					if !device.Connected {
-						device.Connect()
-						d.SharedDevices(d.DeviceList[device.Serial])
-					}
-				}
-			}
-			break
-		}
+		reflectArgs := make([]reflect.Value, 1)
+		reflectArgs[0] = reflect.ValueOf(batteryLevel)
+		battery.Call(reflectArgs)
 	}
 }
 
 // setDeviceStatus will set device status
-func (d *Device) setDeviceStatus(status byte) {
-	switch status {
-	case 0x00: // ALl offline
-		d.setDevicesOffline()
-		break
-	case 0x02: // Single device, online
-		d.setDeviceOnline(2)
-		break
-	case 0x04: // Multiple paired devices, mouse
-		d.setDeviceTypeOffline(0)
-		d.setDeviceOnline(1)
-		break
-	case 0x08: // Multiple paired devices, keyboard
-		d.setDeviceTypeOffline(1)
-		d.setDeviceOnline(0)
-		break
-	case 0x0c:
-		d.setDeviceOnline(2)
-		break
+func (d *Device) setDeviceStatus(status byte, productId uint16) {
+	for _, v := range d.Devices {
+		if productId == v.ProductId {
+			if _, ok := d.PairedDevices[productId]; ok {
+				setConnected := reflect.ValueOf(d.PairedDevices[productId]).MethodByName("SetConnected")
+				if !setConnected.IsValid() {
+					logger.Log(logger.Fields{"productId": v.ProductId, "method": "SetConnected"}).Warn("Invalid or non-existing method called")
+					return
+				}
+
+				connect := reflect.ValueOf(d.PairedDevices[productId]).MethodByName("Connect")
+				if !connect.IsValid() {
+					logger.Log(logger.Fields{"productId": v.ProductId, "method": "Connect"}).Warn("Invalid or non-existing method called")
+					return
+				}
+
+				switch status {
+				case 0x00:
+					reflectArgs := make([]reflect.Value, 1)
+					reflectArgs[0] = reflect.ValueOf(false)
+					setConnected.Call(reflectArgs)
+				case 0x02:
+					go func() {
+						time.Sleep(time.Duration(connectDelay) * time.Millisecond)
+						connect.Call(nil)
+					}()
+				}
+			}
+		} else {
+			for _, val := range d.DeviceList {
+				if _, ok := d.PairedDevices[val.ProductId]; ok {
+					setConnected := reflect.ValueOf(d.PairedDevices[val.ProductId]).MethodByName("SetConnected")
+					if !setConnected.IsValid() {
+						logger.Log(logger.Fields{"productId": val.ProductId, "method": "SetConnected"}).Warn("Invalid or non-existing method called")
+						return
+					}
+
+					connect := reflect.ValueOf(d.PairedDevices[val.ProductId]).MethodByName("Connect")
+					if !connect.IsValid() {
+						logger.Log(logger.Fields{"productId": val.ProductId, "method": "Connect"}).Warn("Invalid or non-existing method called")
+						return
+					}
+
+					switch status {
+					case 0x00:
+						reflectArgs := make([]reflect.Value, 1)
+						reflectArgs[0] = reflect.ValueOf(false)
+						setConnected.Call(reflectArgs)
+					case 0x02:
+						//
+					case 0x04:
+						if val.DeviceType == common.DeviceTypeMouse {
+							go func() {
+								time.Sleep(time.Duration(connectDelay) * time.Millisecond)
+								connect.Call(nil)
+							}()
+						} else {
+							reflectArgs := make([]reflect.Value, 1)
+							reflectArgs[0] = reflect.ValueOf(false)
+							setConnected.Call(reflectArgs)
+						}
+					case 0x08:
+						if val.DeviceType == common.DeviceTypeKeyboard {
+							go func() {
+								time.Sleep(time.Duration(connectDelay) * time.Millisecond)
+								connect.Call(nil)
+							}()
+						} else {
+							reflectArgs := make([]reflect.Value, 1)
+							reflectArgs[0] = reflect.ValueOf(false)
+							setConnected.Call(reflectArgs)
+						}
+					case 0x0c:
+						go func() {
+							time.Sleep(time.Duration(connectDelay) * time.Millisecond)
+							connect.Call(nil)
+						}()
+					}
+				}
+			}
+		}
 	}
 }
 
@@ -1789,6 +1093,79 @@ func (d *Device) getListenerData() []byte {
 	return data
 }
 
+func (d *Device) TriggerKeyboardKeyAssignment(data []byte) {
+	for _, val := range d.DeviceList {
+		if _, ok := d.PairedDevices[val.ProductId]; ok {
+			if val.DeviceType == common.DeviceTypeKeyboard {
+				keyAssignment := reflect.ValueOf(d.PairedDevices[val.ProductId]).MethodByName("TriggerKeyAssignment")
+				if !keyAssignment.IsValid() {
+					logger.Log(logger.Fields{"productId": val.ProductId, "method": "TriggerKeyAssignment"}).Warn("Invalid or non-existing method called")
+					return
+				}
+
+				reflectArgs := make([]reflect.Value, 1)
+				reflectArgs[0] = reflect.ValueOf(data)
+				keyAssignment.Call(reflectArgs)
+			}
+		}
+	}
+}
+
+func (d *Device) TriggerMousedKeyAssignment(data []byte) {
+	for _, val := range d.DeviceList {
+		if device, ok := d.PairedDevices[val.ProductId]; ok {
+			if val.DeviceType == common.DeviceTypeMouse {
+				keyAssignment := reflect.ValueOf(d.PairedDevices[val.ProductId]).MethodByName("TriggerKeyAssignment")
+				if !keyAssignment.IsValid() {
+					logger.Log(logger.Fields{"productId": val.ProductId, "method": "TriggerKeyAssignment"}).Warn("Invalid or non-existing method called")
+					return
+				}
+
+				value := binary.LittleEndian.Uint32(data[2:6])
+				reflectArgs := make([]reflect.Value, 1)
+				reflectArgs[0] = reflect.ValueOf(value)
+				keyAssignment.Call(reflectArgs)
+
+				// Tilt
+				if data[1] == 0x09 {
+					var base uint32 = 32768
+
+					// Override
+					if _, found := device.(*m65rgbultraW.Device); found {
+						base = 256
+					}
+
+					v := binary.LittleEndian.Uint32(data[3:7])
+					switch v {
+					case 1:
+						v = base
+						break
+					case 257:
+						v = base * 2
+						break
+					case 513:
+						v = base * 4
+						break
+					case 769:
+						v = base * 8
+						break
+					}
+
+					tilt := reflect.ValueOf(d.PairedDevices[val.ProductId]).MethodByName("TriggerTiltAssignment")
+					if !tilt.IsValid() {
+						logger.Log(logger.Fields{"productId": val.ProductId, "method": "TriggerTiltAssignment"}).Warn("Invalid or non-existing method called")
+						return
+					}
+
+					args := make([]reflect.Value, 1)
+					args[0] = reflect.ValueOf(v)
+					tilt.Call(args)
+				}
+			}
+		}
+	}
+}
+
 // backendListener will listen for events from the device
 func (d *Device) backendListener() {
 	go func() {
@@ -1832,136 +1209,17 @@ func (d *Device) backendListener() {
 
 				if data[1] == 0x01 && data[2] == 0x36 {
 					value := data[4]
-					d.setDeviceStatus(value)
+					productId := uint16(data[11])<<8 | uint16(data[10])
+					d.setDeviceStatus(value, productId)
 				} else {
 					switch data[0] {
-					case 1, 2, 3:
-						{
-							for _, value := range d.PairedDevices {
-								if dev, found := value.(*k100airW.Device); found {
-									dev.TriggerKeyAssignment(data)
-								}
-								if dev, found := value.(*makr75W.Device); found {
-									dev.TriggerKeyAssignment(data)
-								}
-								if dev, found := value.(*k57rgbW.Device); found {
-									dev.TriggerKeyAssignment(data)
-								}
-								if dev, found := value.(*k70pmW.Device); found {
-									dev.TriggerKeyAssignment(data)
-								}
-								if dev, found := value.(*m55W.Device); found {
-									if data[1] == 0x02 {
-										dev.TriggerKeyAssignment(data[2])
-									}
-								}
-								if dev, found := value.(*m75W.Device); found {
-									if data[1] == 0x02 {
-										dev.TriggerKeyAssignment(data[2])
-									}
-								}
-								if dev, found := value.(*m75AirW.Device); found {
-									if data[1] == 0x02 {
-										dev.TriggerKeyAssignment(data[2])
-									}
-								}
-								if dev, found := value.(*scimitarW.Device); found {
-									if data[1] == 0x02 {
-										dev.TriggerKeyAssignment(binary.LittleEndian.Uint32(data[2:6]))
-									}
-								}
-								if dev, found := value.(*scimitarSEW.Device); found {
-									if data[1] == 0x02 {
-										dev.TriggerKeyAssignment(binary.LittleEndian.Uint32(data[2:6]))
-									}
-								}
-								if dev, found := value.(*nightsabreW.Device); found {
-									if data[1] == 0x02 {
-										dev.TriggerKeyAssignment(binary.LittleEndian.Uint32(data[2:6]))
-									}
-								}
-								if dev, found := value.(*darkcorergbproseW.Device); found {
-									if data[1] == 0x02 {
-										dev.TriggerKeyAssignment(binary.LittleEndian.Uint32(data[2:6]))
-									}
-								}
-								if dev, found := value.(*darkcorergbproW.Device); found {
-									if data[1] == 0x02 {
-										dev.TriggerKeyAssignment(binary.LittleEndian.Uint32(data[2:6]))
-									}
-								}
-								if dev, found := value.(*harpoonW.Device); found {
-									if data[1] == 0x02 {
-										dev.TriggerKeyAssignment(data[2])
-									}
-								}
-								if dev, found := value.(*ironclawW.Device); found {
-									if data[1] == 0x02 {
-										dev.TriggerKeyAssignment(binary.LittleEndian.Uint32(data[2:6]))
-									}
-								}
-								if dev, found := value.(*darkstarW.Device); found {
-									if data[1] == 0x02 {
-										dev.TriggerKeyAssignment(binary.LittleEndian.Uint32(data[2:6]))
-									}
-
-									// Tilt
-									if data[1] == 0x09 {
-										var base uint32 = 32768
-										v := binary.LittleEndian.Uint32(data[3:7])
-										switch v {
-										case 1:
-											v = base
-											break
-										case 257:
-											v = base * 2
-											break
-										case 513:
-											v = base * 4
-											break
-										case 769:
-											v = base * 8
-											break
-										}
-										dev.TriggerTiltAssignment(v)
-									}
-								}
-								if dev, found := value.(*m65rgbultraW.Device); found {
-									if data[1] == 0x02 {
-										dev.TriggerKeyAssignment(binary.LittleEndian.Uint32(data[2:6]))
-									}
-
-									// Tilt
-									if data[1] == 0x09 {
-										var base uint32 = 256
-										v := binary.LittleEndian.Uint32(data[3:7])
-										switch v {
-										case 1:
-											v = base
-											break
-										case 257:
-											v = base * 2
-											break
-										case 513:
-											v = base * 4
-											break
-										case 769:
-											v = base * 8
-											break
-										}
-										dev.TriggerTiltAssignment(v)
-									}
-								}
-								if dev, found := value.(*sabrergbproW.Device); found {
-									if data[1] == 0x02 {
-										dev.TriggerKeyAssignment(binary.LittleEndian.Uint32(data[2:6]))
-									}
-								}
-								if dev, found := value.(*k70coretklW.Device); found {
-									dev.TriggerKeyAssignment(data)
-								}
-							}
-						}
+					case 1:
+						d.TriggerMousedKeyAssignment(data)
+						d.TriggerKeyboardKeyAssignment(data)
+					case 2:
+						d.TriggerMousedKeyAssignment(data)
+					case 3:
+						d.TriggerKeyboardKeyAssignment(data)
 					}
 				}
 			}
@@ -1989,12 +1247,12 @@ func (d *Device) transfer(command byte, endpoint, buffer []byte) ([]byte, error)
 	}
 
 	for {
-		n, err := d.slipstream.Dev.Read(reports)
-		if err != nil {
+		n, e := d.slipstream.Dev.Read(reports)
+		if e != nil {
 			if n < 0 {
 				//
 			}
-			if err == hid.ErrTimeout || n == 0 {
+			if e == hid.ErrTimeout || n == 0 {
 				break
 			}
 			break
@@ -2009,16 +1267,16 @@ func (d *Device) transfer(command byte, endpoint, buffer []byte) ([]byte, error)
 
 	bufferR := make([]byte, bufferSize)
 
-	if _, err := d.slipstream.Dev.Write(bufferW); err != nil {
+	if _, e := d.slipstream.Dev.Write(bufferW); e != nil {
 		if d.Debug {
-			logger.Log(logger.Fields{"error": err, "serial": d.Serial}).Error("Unable to write to a device")
+			logger.Log(logger.Fields{"error": e, "serial": d.Serial}).Error("Unable to write to a device")
 		}
 		return bufferR, err
 	}
 
-	if _, err := d.slipstream.Dev.ReadWithTimeout(bufferR, time.Duration(transferTimeout)*time.Millisecond); err != nil {
+	if _, e := d.slipstream.Dev.ReadWithTimeout(bufferR, time.Duration(transferTimeout)*time.Millisecond); e != nil {
 		if d.Debug {
-			logger.Log(logger.Fields{"error": err, "serial": d.Serial}).Error("Unable to read data from device")
+			logger.Log(logger.Fields{"error": e, "serial": d.Serial}).Error("Unable to read data from device")
 		}
 		return bufferR, err
 	}
