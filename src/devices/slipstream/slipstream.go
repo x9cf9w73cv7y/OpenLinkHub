@@ -1212,14 +1212,16 @@ func (d *Device) backendListener() {
 					productId := uint16(data[11])<<8 | uint16(data[10])
 					d.setDeviceStatus(value, productId)
 				} else {
-					switch data[0] {
-					case 1:
-						d.TriggerMousedKeyAssignment(data)
-						d.TriggerKeyboardKeyAssignment(data)
-					case 2:
-						d.TriggerMousedKeyAssignment(data)
-					case 3:
-						d.TriggerKeyboardKeyAssignment(data)
+					if data[1] == 0x02 || data[1] == 0x09 {
+						switch data[0] {
+						case 1:
+							d.TriggerMousedKeyAssignment(data)
+							d.TriggerKeyboardKeyAssignment(data)
+						case 2:
+							d.TriggerMousedKeyAssignment(data)
+						case 3:
+							d.TriggerKeyboardKeyAssignment(data)
+						}
 					}
 				}
 			}
