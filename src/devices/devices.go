@@ -70,6 +70,7 @@ import (
 	"OpenLinkHub/src/devices/lt100"
 	"OpenLinkHub/src/devices/m55"
 	"OpenLinkHub/src/devices/m55rgbpro"
+	"OpenLinkHub/src/devices/m65prorgb"
 	"OpenLinkHub/src/devices/m65rgbelite"
 	"OpenLinkHub/src/devices/m65rgbultra"
 	"OpenLinkHub/src/devices/m65rgbultraWU"
@@ -785,6 +786,7 @@ var deviceRegisterMap = map[uint16]Product{
 	7093:  {1, 0, "M65 RGB ULTRA WIRELESS", m65rgbultraWU.Init, nil},       // M65 RGB ULTRA WIRELESS Gaming Mouse
 	7126:  {1, 0, "M65 RGB ULTRA WIRELESS", m65rgbultraWU.Init, nil},       // M65 RGB ULTRA WIRELESS Gaming Mouse
 	7002:  {1, 0, "M65 RGB ELITE", m65rgbelite.Init, nil},                  // M65 RGB ELITE Gaming Mouse
+	6958:  {1, 0, "M65 PRO RGB", m65prorgb.Init, nil},                      // M65 PRO RGB Mouse
 	7029:  {1, 0, "HARPOON RGB PRO", harpoonrgbpro.Init, nil},              // HARPOON RGB PRO Gaming Mouse
 	7006:  {1, 0, "HARPOON", harpoonWU.Init, nil},                          // HARPOON Gaming Mouse
 	7004:  {1, 0, "NIGHTSWORD RGB", nightswordrgb.Init, nil},               // NIGHTSWORD RGB Gaming Mouse
