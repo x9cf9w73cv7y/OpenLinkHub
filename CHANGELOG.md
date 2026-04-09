@@ -1,3 +1,29 @@
+## 2026-04-09
+
+* ironclaw se wireless (1e350b0)
+
+## 2026-04-08
+
+* de layout update (88c4c82)
+* missing elgato key on vanguard devices (23a4043)
+
+## 2026-04-06
+
+* hs80 max wireless for xbox https://github.com/jurkovic-nikola/OpenLinkHub/issues/388 (96274aa)
+
+## 2026-04-05
+
+* sequential colors https://github.com/jurkovic-nikola/OpenLinkHub/issues/384 (e22c9de)
+* fixups (57bb7d6)
+
+## 2026-04-04
+
+* missing lcd ids https://github.com/jurkovic-nikola/OpenLinkHub/issues/383 (1233b65)
+
+## 2026-04-02
+
+* changelog (d472a47)
+
 ## 2026-04-01
 
 * K70 PRO RGB TKL SE layout https://github.com/jurkovic-nikola/OpenLinkHub/issues/379 (620317b)
