@@ -29,6 +29,7 @@ import (
 	"OpenLinkHub/src/devices/hs80rgbWU"
 	"OpenLinkHub/src/devices/hydro"
 	"OpenLinkHub/src/devices/ironclaw"
+	"OpenLinkHub/src/devices/ironclawSEWU"
 	"OpenLinkHub/src/devices/ironclawWU"
 	"OpenLinkHub/src/devices/k100"
 	"OpenLinkHub/src/devices/k100airWU"
@@ -766,6 +767,7 @@ var deviceRegisterMap = map[uint16]Product{
 	7005:  {1, 0, "IRONCLAW RGB", ironclaw.Init, nil},                      // IRONCLAW RGB Gaming Mouse
 	6987:  {1, 0, "DARK CORE RGB SE", darkcorergbseWU.Init, nil},           // DARK CORE RGB SE
 	6988:  {1, 0, "IRONCLAW RGB WIRELESS", ironclawWU.Init, nil},           // IRONCLAW RGB WIRELESS Gaming Mouse
+	11058: {1, 0, "IRONCLAW WIRELESS SE", ironclawSEWU.Init, nil},          // IRONCLAW WIRELESS SE Gaming Mouse
 	7096:  {1, 0, "NIGHTSABRE WIRELESS", nightsabreWU.Init, nil},           // NIGHTSABRE WIRELESS Mouse
 	7139:  {1, 0, "SCIMITAR RGB ELITE", scimitar.Init, nil},                // SCIMITAR RGB ELITE
 	6974:  {1, 0, "SCIMITAR PRO RGB", scimitarprorgb.Init, nil},            // SCIMITAR PRO RGB

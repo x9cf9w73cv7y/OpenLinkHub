@@ -169,6 +169,8 @@ const (
 	ProductTypeGlaiveRgbPro         = 244
 	ProductTypeGlaiveRgb            = 245
 	ProductTypeSabreV2Pro           = 246
+	ProductTypeIronClawSEW          = 247
+	ProductTypeIronClawSEWU         = 248
 	ProductTypeVirtuosoXTW          = 300
 	ProductTypeVirtuosoXTWU         = 301
 	ProductTypeVirtuosoMAXW         = 302

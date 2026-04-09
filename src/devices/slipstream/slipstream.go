@@ -11,6 +11,7 @@ import (
 	"OpenLinkHub/src/devices/darkcorergbproseW"
 	"OpenLinkHub/src/devices/darkstarW"
 	"OpenLinkHub/src/devices/harpoonW"
+	"OpenLinkHub/src/devices/ironclawSEW"
 	"OpenLinkHub/src/devices/ironclawW"
 	"OpenLinkHub/src/devices/k100airW"
 	"OpenLinkHub/src/devices/k57rgbW"
@@ -286,6 +287,30 @@ func (d *Device) addDevices() {
 				object := &common.Device{
 					ProductType: common.ProductTypeIronClawRgbW,
 					Product:     "IRONCLAW RGB",
+					Serial:      dev.Serial,
+					Firmware:    dev.Firmware,
+					Image:       "icon-mouse.svg",
+					Instance:    dev,
+					DeviceType:  common.DeviceTypeMouse,
+					ProductId:   value.ProductId,
+				}
+				d.SharedDevices(object)
+				d.AddPairedDevice(value.ProductId, dev, object)
+			}
+		case 11058: // IRONCLAW SE WIRELESS
+			{
+				dev := ironclawSEW.Init(
+					value.VendorId,
+					d.ProductId,
+					value.ProductId,
+					d.slipstream,
+					value.Endpoint,
+					value.Serial,
+				)
+
+				object := &common.Device{
+					ProductType: common.ProductTypeIronClawSEW,
+					Product:     "IRONCLAW SE",
 					Serial:      dev.Serial,
 					Firmware:    dev.Firmware,
 					Image:       "icon-mouse.svg",
