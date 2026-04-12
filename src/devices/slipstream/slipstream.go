@@ -28,10 +28,14 @@ import (
 	"OpenLinkHub/src/devices/scimitarW"
 	"OpenLinkHub/src/logger"
 	"encoding/binary"
+	"encoding/json"
 	"errors"
 	"fmt"
 	"github.com/sstallion/go-hid"
+	"os"
+	"path/filepath"
 	"reflect"
+	"slices"
 	"sync"
 	"time"
 )
@@ -56,6 +60,7 @@ type Device struct {
 	PairedDevices  map[uint16]any
 	SharedDevices  func(device *common.Device)
 	DeviceList     map[string]*common.Device
+	DeviceProfile  *DeviceProfile
 	SingleDevice   bool
 	Template       string
 	Debug          bool
@@ -65,30 +70,45 @@ type Device struct {
 	keepAliveChan  chan struct{}
 	sleepChan      chan struct{}
 	instance       *common.Device
+	PollingRates   map[int]string
+}
+
+type DeviceProfile struct {
+	Active      bool
+	Path        string
+	Product     string
+	Serial      string
+	PollingRate int
 }
 
 var (
-	bufferSize       = 64
-	bufferSizeWrite  = bufferSize + 1
-	headerSize       = 2
-	deviceKeepAlive  = 10000
-	cmdSoftwareMode  = []byte{0x01, 0x03, 0x00, 0x02}
-	cmdHardwareMode  = []byte{0x01, 0x03, 0x00, 0x01}
-	cmdGetDevices    = []byte{0x24}
-	cmdHeartbeat     = []byte{0x12}
-	cmdInactivity    = []byte{0x02, 0x40}
-	cmdOpenEndpoint  = []byte{0x0d, 0x00}
-	cmdCloseEndpoint = []byte{0x05, 0x01}
-	cmdGetFirmware   = []byte{0x02, 0x13}
-	cmdRead          = []byte{0x08, 0x00}
-	cmdWrite         = []byte{0x09, 0x00}
-	cmdBatteryLevel  = []byte{0x02, 0x0f}
-	cmdCommand       = byte(0x08)
-	transferTimeout  = 100
-	connectDelay     = 5000
+	pwd                = ""
+	bufferSize         = 64
+	bufferSizeWrite    = bufferSize + 1
+	headerSize         = 2
+	deviceKeepAlive    = 10000
+	cmdSoftwareMode    = []byte{0x01, 0x03, 0x00, 0x02}
+	cmdHardwareMode    = []byte{0x01, 0x03, 0x00, 0x01}
+	cmdGetDevices      = []byte{0x24}
+	cmdHeartbeat       = []byte{0x12}
+	cmdInactivity      = []byte{0x02, 0x40}
+	cmdOpenEndpoint    = []byte{0x0d, 0x00}
+	cmdCloseEndpoint   = []byte{0x05, 0x01}
+	cmdGetFirmware     = []byte{0x02, 0x13}
+	cmdRead            = []byte{0x08, 0x00}
+	cmdWrite           = []byte{0x09, 0x00}
+	cmdBatteryLevel    = []byte{0x02, 0x0f}
+	cmdSetPollingRate  = []byte{0x01, 0x01, 0x00}
+	cmdCommand         = byte(0x08)
+	transferTimeout    = 100
+	connectDelay       = 5000
+	pollingRateDevices = []uint16{7132, 11008}
 )
 
 func Init(vendorId, productId uint16, _, path string, callback func(device *common.Device)) *common.Device {
+	// Set global working directory
+	pwd = config.GetConfig().ConfigPath
+
 	// Open device, return if failure
 	dev, err := hid.OpenPath(path)
 	if err != nil {
@@ -115,12 +135,21 @@ func Init(vendorId, productId uint16, _, path string, callback func(device *comm
 		timerSleep:     &time.Ticker{},
 		timerKeepAlive: &time.Ticker{},
 		SharedDevices:  callback,
+		PollingRates: map[int]string{
+			0: "Not Set",
+			1: "125 Hz / 8 msec",
+			2: "250 Hz / 4 msec",
+			3: "500 Hz / 2 msec",
+			4: "1000 Hz / 1 msec",
+		},
 	}
 
 	d.getDebugMode()         // Debug
 	d.getManufacturer()      // Manufacturer
 	d.getProduct()           // Product
 	d.getSerial()            // Serial
+	d.loadDeviceProfile()    // Load device profile
+	d.saveDeviceProfile()    // Save profile
 	d.getDeviceFirmware()    // Firmware
 	d.setSoftwareMode()      // Switch to software mode
 	d.getDevices()           // Get devices
@@ -774,6 +803,103 @@ func (d *Device) getDevices() {
 	d.Devices = devices
 }
 
+// loadDeviceProfiles will load custom user profiles
+func (d *Device) loadDeviceProfile() {
+	profilePath := pwd + "/database/profiles/" + d.Serial + ".json"
+	pf := &DeviceProfile{}
+
+	// Check if filename has .json extension
+	if !common.IsValidExtension(profilePath, ".json") {
+		return
+	}
+
+	file, err := os.Open(profilePath)
+	if err != nil {
+		logger.Log(logger.Fields{"error": err, "serial": d.Serial, "location": profilePath}).Warn("Unable to load profile")
+		return
+	}
+	if err = json.NewDecoder(file).Decode(pf); err != nil {
+		logger.Log(logger.Fields{"error": err, "serial": d.Serial, "location": profilePath}).Warn("Unable to decode profile")
+		return
+	}
+	err = file.Close()
+	if err != nil {
+		logger.Log(logger.Fields{"location": profilePath, "serial": d.Serial}).Warn("Failed to close file handle")
+	}
+	d.DeviceProfile = pf
+}
+
+// saveDeviceProfile will save device profile for persistent configuration
+func (d *Device) saveDeviceProfile() {
+	profilePath := pwd + "/database/profiles/" + d.Serial + ".json"
+	deviceProfile := &DeviceProfile{
+		Product: d.Product,
+		Serial:  d.Serial,
+		Path:    profilePath,
+	}
+
+	if d.DeviceProfile == nil {
+		deviceProfile.Active = true
+		deviceProfile.PollingRate = 4
+	} else {
+		if d.DeviceProfile.PollingRate == 0 {
+			deviceProfile.PollingRate = 4
+		} else {
+			deviceProfile.PollingRate = d.DeviceProfile.PollingRate
+		}
+		deviceProfile.Active = d.DeviceProfile.Active
+		if len(d.DeviceProfile.Path) < 1 {
+			deviceProfile.Path = profilePath
+			d.DeviceProfile.Path = profilePath
+		} else {
+			deviceProfile.Path = d.DeviceProfile.Path
+		}
+	}
+
+	// Fix profile paths if folder database/ folder is moved
+	filename := filepath.Base(deviceProfile.Path)
+	path := fmt.Sprintf("%s/database/profiles/%s", pwd, filename)
+	if deviceProfile.Path != path {
+		logger.Log(logger.Fields{"original": deviceProfile.Path, "new": path}).Warn("Detected mismatching device profile path. Fixing paths...")
+		deviceProfile.Path = path
+	}
+
+	// Save profile
+	if err := common.SaveJsonData(deviceProfile.Path, deviceProfile); err != nil {
+		logger.Log(logger.Fields{"error": err, "location": deviceProfile.Path}).Error("Unable to write device profile data")
+		return
+	}
+	d.loadDeviceProfile()
+}
+
+// UpdatePollingRate will set device polling rate
+func (d *Device) UpdatePollingRate(pullingRate int) uint8 {
+	if !slices.Contains(pollingRateDevices, d.ProductId) {
+		logger.Log(logger.Fields{}).Error("Unsupported device for polling rate change")
+		return 0
+	}
+
+	if _, ok := d.PollingRates[pullingRate]; ok {
+		if d.DeviceProfile == nil {
+			return 0
+		}
+		d.Exit = true
+		time.Sleep(40 * time.Millisecond)
+
+		d.DeviceProfile.PollingRate = pullingRate
+		d.saveDeviceProfile()
+		buf := make([]byte, 1)
+		buf[0] = byte(pullingRate)
+		_, err := d.transfer(cmdCommand, cmdSetPollingRate, buf, false)
+		if err != nil {
+			logger.Log(logger.Fields{"error": err, "vendorId": d.VendorId}).Error("Unable to set mouse polling rate")
+			return 0
+		}
+		return 1
+	}
+	return 0
+}
+
 // getSerial will return device serial number
 func (d *Device) getSerial() {
 	serial, err := d.slipstream.Dev.GetSerialNbr()
@@ -803,7 +929,7 @@ func (d *Device) getProduct() {
 
 // getDeviceFirmware will return a firmware version out as string
 func (d *Device) getDeviceFirmware() {
-	fw, err := d.transfer(cmdCommand, cmdGetFirmware, nil)
+	fw, err := d.transfer(cmdCommand, cmdGetFirmware, nil, true)
 	if err != nil {
 		logger.Log(logger.Fields{"error": err}).Error("Unable to write to a device")
 	}
@@ -814,7 +940,7 @@ func (d *Device) getDeviceFirmware() {
 
 // setHardwareMode will switch a device to hardware mode
 func (d *Device) setHardwareMode() {
-	_, err := d.transfer(cmdCommand, cmdHardwareMode, nil)
+	_, err := d.transfer(cmdCommand, cmdHardwareMode, nil, true)
 	if err != nil {
 		logger.Log(logger.Fields{"error": err}).Error("Unable to change device mode")
 	}
@@ -822,14 +948,14 @@ func (d *Device) setHardwareMode() {
 
 // setSoftwareMode will switch a device to software mode
 func (d *Device) setSoftwareMode() {
-	_, err := d.transfer(cmdCommand, cmdSoftwareMode, nil)
+	_, err := d.transfer(cmdCommand, cmdSoftwareMode, nil, true)
 	if err != nil {
 		logger.Log(logger.Fields{"error": err}).Error("Unable to change device mode")
 	}
 }
 
 func (d *Device) readNext() []byte {
-	buffer, err := d.transfer(cmdCommand, cmdRead, nil)
+	buffer, err := d.transfer(cmdCommand, cmdRead, nil, true)
 	if err != nil {
 		logger.Log(logger.Fields{"error": err}).Error("Unable to read endpoint")
 	}
@@ -840,35 +966,35 @@ func (d *Device) readNext() []byte {
 func (d *Device) read(endpoint []byte) []byte {
 	var buffer []byte
 
-	_, err := d.transfer(cmdCommand, cmdCloseEndpoint, endpoint)
+	_, err := d.transfer(cmdCommand, cmdCloseEndpoint, endpoint, true)
 	if err != nil {
 		logger.Log(logger.Fields{"error": err}).Error("Unable to close endpoint")
 	}
 
-	_, err = d.transfer(cmdCommand, cmdOpenEndpoint, endpoint)
+	_, err = d.transfer(cmdCommand, cmdOpenEndpoint, endpoint, true)
 	if err != nil {
 		logger.Log(logger.Fields{"error": err}).Error("Unable to open endpoint")
 	}
 
-	_, err = d.transfer(cmdCommand, cmdWrite, endpoint)
+	_, err = d.transfer(cmdCommand, cmdWrite, endpoint, true)
 	if err != nil {
 		logger.Log(logger.Fields{"error": err}).Error("Unable to open endpoint")
 	}
 
-	buffer, err = d.transfer(cmdCommand, cmdRead, endpoint)
+	buffer, err = d.transfer(cmdCommand, cmdRead, endpoint, true)
 	if err != nil {
 		logger.Log(logger.Fields{"error": err}).Error("Unable to read endpoint")
 	}
 
 	for i := 1; i < int(buffer[5]); i++ {
-		next, e := d.transfer(cmdCommand, cmdRead, endpoint)
+		next, e := d.transfer(cmdCommand, cmdRead, endpoint, true)
 		if e != nil {
 			logger.Log(logger.Fields{"error": err}).Error("Unable to read endpoint")
 		}
 		buffer = append(buffer, next[3:]...)
 	}
 
-	_, err = d.transfer(cmdCommand, cmdCloseEndpoint, nil)
+	_, err = d.transfer(cmdCommand, cmdCloseEndpoint, nil, true)
 	if err != nil {
 		logger.Log(logger.Fields{"error": err}).Error("Unable to close endpoint")
 	}
@@ -1015,13 +1141,13 @@ func (d *Device) monitorDevice() {
 					if d.Exit {
 						return
 					}
-					_, err := d.transfer(cmdCommand, cmdHeartbeat, nil)
+					_, err := d.transfer(cmdCommand, cmdHeartbeat, nil, true)
 					if err != nil {
 						logger.Log(logger.Fields{"error": err}).Error("Unable to read slipstream endpoint")
 					}
 					for _, value := range d.Devices {
 						if d.slipstream.Connected[value.ProductId] {
-							_, e := d.transfer(value.Endpoint, cmdHeartbeat, nil)
+							_, e := d.transfer(value.Endpoint, cmdHeartbeat, nil, true)
 							if e != nil {
 								if d.Debug {
 									logger.Log(logger.Fields{"error": e}).Error("Unable to read paired device endpoint")
@@ -1029,7 +1155,7 @@ func (d *Device) monitorDevice() {
 								continue
 							}
 
-							batteryLevel, e := d.transfer(value.Endpoint, cmdBatteryLevel, nil)
+							batteryLevel, e := d.transfer(value.Endpoint, cmdBatteryLevel, nil, true)
 							if e != nil {
 								if d.Debug {
 									logger.Log(logger.Fields{"error": e}).Error("Unable to read paired device endpoint for battery status")
@@ -1083,7 +1209,7 @@ func (d *Device) sleepMonitor() {
 					}
 					for _, value := range d.Devices {
 						if d.slipstream.Connected[value.ProductId] {
-							msg, err := d.transfer(value.Endpoint, cmdInactivity, nil)
+							msg, err := d.transfer(value.Endpoint, cmdInactivity, nil, true)
 							if err != nil {
 								if d.Debug {
 									logger.Log(logger.Fields{"error": err}).Error("Unable to read device endpoint")
@@ -1271,7 +1397,7 @@ func (d *Device) backendListener() {
 }
 
 // transfer will send data to a device and retrieve device output
-func (d *Device) transfer(command byte, endpoint, buffer []byte) ([]byte, error) {
+func (d *Device) transfer(command byte, endpoint, buffer []byte, read bool) ([]byte, error) {
 	if d.slipstream == nil || d.slipstream.Dev == nil {
 		return nil, errors.New("slipstream device is not initialized")
 	}
@@ -1321,11 +1447,13 @@ func (d *Device) transfer(command byte, endpoint, buffer []byte) ([]byte, error)
 		return bufferR, e
 	}
 
-	if _, e := d.slipstream.Dev.ReadWithTimeout(bufferR, time.Duration(transferTimeout)*time.Millisecond); e != nil {
-		if d.Debug {
-			logger.Log(logger.Fields{"error": e, "serial": d.Serial}).Error("Unable to read data from device")
+	if read {
+		if _, e := d.slipstream.Dev.ReadWithTimeout(bufferR, time.Duration(transferTimeout)*time.Millisecond); e != nil {
+			if d.Debug {
+				logger.Log(logger.Fields{"error": e, "serial": d.Serial}).Error("Unable to read data from device")
+			}
+			return bufferR, e
 		}
-		return bufferR, e
 	}
 	return bufferR, nil
 }
